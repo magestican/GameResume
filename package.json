@@ -1,15 +1,15 @@
 {
-  "name": "slic",
+  "name": "bryan arbelo resume",
   "version": "0.0.1",
   "description": "Slic",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git@git.soma.salesforce.com:aputinski/slic.git"
+    "url": "git@github.com:magestican/GameResume.git"
   },
-  "author": "Adam Putinski",
+  "author": "Bryan Arbelo",
   "license": "BSD",
-  "gitHead": "96983be4e1282e3a297eb146c2b0d7fe0596b566",
+  "gitHead": "7141cf609cac101af7b5d403a7af7862855be11a",
   "readmeFilename": "README.md",
   "devDependencies": {
     "browserify": "~2.35.0",

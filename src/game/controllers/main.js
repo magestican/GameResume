@@ -2,7 +2,11 @@ angular.module('SlicControllers')
     .controller('MainController', ['$scope', '$filter', function($scope, $filter) {
 
         //globals 
-        var MyGame = {};
+        var Game = {};
+        Game.fps = 60;
+        Game.maxFrameSkip = 10;
+        Game.skipTicks = 1000 / Game.fps;
+
         var particles = [];
         var c = document.getElementById("myCanvas");
         var ctx = c.getContext("2d");
@@ -214,38 +218,94 @@ angular.module('SlicControllers')
 
       
         //THERE IS NO WHILE!!
-        function loop() {
-            clear();
-            drawMyName();
-            update();
-            render();
-            queue();
-        }
 
-        function clear() {
+
+        Game.initialize = function () {
+            this.entities = [];
+            this.viewport = document.body;
+
+            this.input = new Input();
+
+            this.debug = new Debug();
+            this.debug.initialize(this.viewport);
+
+            this.screen = new Screen();
+            this.screen.initialize(this.viewport);
+            this.screen.setWorld(new World());
+        };
+
+        Game.update = function (tick) {
+            Game.tick = tick;
+            this.input.update();
+            this.debug.update();
+            this.screen.update();
+        };
+
+        Game.draw = function () {
+            this.debug.draw();
+            this.screen.clear();
+            this.screen.draw();
+        };
+
+        Game.pause = function () {
+            this.paused = (this.paused) ? false : true;
+        };
+
+        Game.clear = function () {
             ctx.clearRect(0, 0, c.width, c.height);
         }
+        /*
+         * Runs the actual loop inside browser
+         */
+        Game.run = (function () {
+            var loops = 0;
+            var nextGameTick = (new Date).getTime();
+            var startTime = (new Date).getTime();
+            return function () {
+                loops = 0;
+                while (!Game.paused && (new Date).getTime() > nextGameTick && loops < Game.maxFrameSkip) {
+                    Game.update(nextGameTick - startTime);
+                    nextGameTick += Game.skipTicks;
+                    loops++;
+                }
+                Game.draw();
+            };
+        })();
 
-        function update() {
-            addNewParticles();
-            plotParticles(c.width, c.height);
-        }
+        (function () {
+            var onEachFrame;
+            if (window.webkitRequestAnimationFrame) {
+                onEachFrame = function (cb) {
+                    var _cb = function () {
+                        cb();
+                        webkitRequestAnimationFrame(_cb);
+                    };
+                    _cb();
+                };
+            } else if (window.mozRequestAnimationFrame) {
+                onEachFrame = function (cb) {
+                    var _cb = function () {
+                        cb();
+                        mozRequestAnimationFrame(_cb);
+                    };
+                    _cb();
+                };
+            } else {
+                onEachFrame = function (cb) {
+                    setInterval(cb, Game.skipTicks);
+                };
+            }
 
-        function render() {
-            drawParticles();
-            fields.forEach(drawCircle);
-            emitters.forEach(drawCircle);
-        }
+            window.onEachFrame = onEachFrame;
+        })();
 
-        function queue() {
-            window.requestAnimationFrame(loop);
-        }
 
-        loop();
 
-        //clear canvas
-        function clear() {
-            ctx.clearRect(0, 0, c.width, c.height);
-        }
+
+
+
+
+
+
 
     }]);

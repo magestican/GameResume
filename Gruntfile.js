@@ -20,18 +20,13 @@ module.exports = function(grunt) {
                 debug: true
             }
         },
-
+        
         concat: {
             options: {
                 separator: ';'
             },
             lib: {
-                src: [
-                    'src/api/jquery.js',
-                    'src/api/angular.js',
-                    'src/api/angular-sanitize.js',
-                    'src/api/jquery.slimscroll.js'
-                ],
+                src: 'src/api/**/*.js"',
                 dest: 'build/lib.js'
             }
         },
