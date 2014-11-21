@@ -1,0 +1,145 @@
+.profile {
+    h4 {
+        margin: 2.5em 0 .6em 0;
+        font-size: .85em;
+        color: $colorGrayMidDark;
+    }
+
+    .content-block {
+        margin-bottom: 2em;
+        color: $colorGrayDark;
+
+        a {
+            color: $colorLink;
+
+            &:hover {
+                color: $colorLinkHoverDark;
+            }
+        }
+    }
+
+    .tags {
+        padding-bottom: .50em;
+    }
+
+    .large {
+        display: inline-block;
+        line-height: 1.2em;
+
+        //margin: 0 0 2rem;
+
+        font-size: 1.4em;
+        color: $colorGrayDark;
+    }
+
+    .large-sidebar {
+        display: inline-block;
+        margin: 0 0 0rem;
+        line-height: 1.2em;
+
+
+        font-size: 1.4em;
+        color: $colorGrayDark;
+    }
+}
+
+    .profile-sidebar {
+        &.column {
+            padding: 0;
+        }
+
+        .contact, .social {
+            h4 {
+                margin-bottom: 1em;
+            }
+
+            [class^="icon-"]:before,
+            [class*="icon-"]:before {
+                font-size: 1.2em;
+                margin: 0 .5em 0 0;
+
+            }
+        }
+
+        .contact {
+            li {
+                display: block;
+                margin: 0 0 1em 0;
+            }
+        }
+
+        .social {
+            a {
+                display: inline-block;
+                margin: 0 0.5em 0 0;
+
+                &:hover {
+                    color: $colorLinkHoverLight;
+                }
+            }
+        }
+    }
+
+        .profile-image {
+            width: 90%;
+            height: 17em;
+            border-radius: 8px;
+            background-color: $colorGray;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border: 1px solid $colorGrayLightMid;
+
+            &.project-color {
+                background-size: auto;
+                background-position: center center;
+                background-image: url(../../img/icon-project-default.png);
+            }
+
+            &.project-color-1 {
+                background-color: $colorProject1;
+            }
+
+            &.project-color-2 {
+                background-color: $colorProject2;
+            }
+
+            &.project-color-3 {
+                background-color: $colorProject3;
+            }
+
+            &.project-color-4 {
+                background-color: $colorProject4;
+            }
+
+            &.project-color-5 {
+                background-color: $colorProject5;
+            }
+
+            &.project-color-6 {
+                background-color: $colorProject6;
+            }
+        }
+
+    .profile-content.column {
+        padding-left: 2em;
+
+        .section-group {
+            section {
+                //border-bottom: 1px solid $colorGrayMid;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+        }
+
+        .section-group-title {
+            margin: 3em 0 0 0;
+            padding: 3em 0 0 0;
+            border-top: 4px solid $colorGrayMid;
+
+            font-size: 1.2em;
+            color: $colorGrayMidDark;
+        }
+    }

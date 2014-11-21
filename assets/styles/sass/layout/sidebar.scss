@@ -1,0 +1,612 @@
+// .sidebar {
+//     position: fixed;
+//     left: 0;
+//     top: 50%;
+
+
+//     @include transform(translateY(-50%));
+// }
+
+//     .sidebar-nav-item {
+//         position: relative;
+//         margin: 0 0 1.6em 0;
+
+//         // &:before {
+//         //     display: block;
+//         //     content: '';
+//         //     position: absolute;
+//         //     left: 0;
+//         //     top: -10px;
+//         //     bottom: -10px;
+//         //     width: 3px;
+//         //     @include transition-duration(300ms);
+
+//         // }
+
+//         &:hover:before {
+//             background-color: $colorLinkHoverLight;
+//         }
+//     }
+
+//     .sidebar-nav-item-link {
+//         display: inline-block;
+//         padding: 0 0 0 1.5em;
+//         font-size: 1rem;
+
+
+//         color: $colorGray;
+//         @include transition-duration(300ms);
+
+//         &:before {
+//             font-size: 1.3rem;
+//         }
+
+//         // &.icon-home:before {
+//         //     margin-top: -0.2em;
+//         // }
+
+//         &.icon-briefcase:top {
+//             margin-bottom: -0.2em;
+//         }
+
+//         &.icon-file:before {
+//             margin-top: 0.2em;
+//         }
+
+//         &.icon-tag:before {
+//             margin-top: 0.2em;
+//         }
+
+//         &.icon-persona:before {
+//             margin-top: 0.2em;
+//         }
+
+//         &:hover {
+//             color: $colorLinkHoverLight;
+//             margin-left: 0.5em;
+
+//             .label {
+//                 display: inline-block;
+//             }
+//         }
+
+//         .label {
+//             display: none;
+//         }
+//     }
+
+
+
+
+
+
+
+
+// OLD SIDEBAR
+
+// .sidebar-menu-link {
+//     position: fixed;
+//     left: 0;
+//     top: 66px;
+//     padding: .6em 1.4em;
+//     z-index: 21;
+//     color: $colorGrayDark;
+//     font-size: 1.2em;
+
+//     &:before {
+//         color: red;
+//     }
+// }
+
+// .sidebar {
+//     opacity: .98;
+//     display: none;
+//     position: fixed;
+//     top: $layoutHeaderHeight;
+//     bottom: 0;
+//     width: $layoutSidebarWidth;
+//     //height: 100%;
+//     z-index: 22;
+//     //padding: 0.75em 0 0 0;
+//     background-color: $colorWhite; // background color for sidebar
+//     color: $colorGrayLightDark; // menu text color
+//     //opacity: 0;
+//     @include box-shadow(4px 0px 8px -2px rgba(31, 33, 34, 0.06));
+//     @include transition(opacity 100ms);
+
+//     &.show {
+//         display: block;
+//         //opacity: 1;
+//     }
+
+//     &.show-pinned {
+//         display: block!important;
+//         opacity: 1!important;
+
+//         .icon-pin:before {
+//             color: $colorLinkHoverLight;
+//         }
+//     }
+// }
+//     .sidebar-nav {
+//         padding: 2rem 0 0 0;
+//     }
+
+//         .sidebar-nav-item {
+//             position: relative;
+
+//             white-space: nowrap;
+
+//             &.link:hover {
+//                 .sidebar-nav-item-action {
+//                     background-color: shade($colorGrayLight, 2%); // hover on arrow background
+//                 }
+//             }
+
+//             &.link.active {
+//                 .sidebar-nav-item-action {
+//                     background-color: shade($colorGrayLight, 2%); // hover on arrow background
+//                 }
+//             }
+
+//             &.link:hover,
+//             &.link.active {
+//                 background-color: $colorGrayLight; // hover on menu background
+//             }
+
+//             &.link.active .sidebar-nav-item-action {
+//                 color: $colorLinkHoverLight;
+//             }
+//         }
+
+//         .sidebar-nav-item-link {
+//             display: inline-block;
+//             width: 80%;
+//             padding: 1em 0 1em 1.5em;
+
+//             font-size: 1.05em;
+//             vertical-align: middle;
+
+
+//             &:before {
+//                 //display: none;
+//                 margin: -0.2em 0.5em 0 0;
+
+//                 color: #445564; // menu icons
+//                 font-size: 1.1em;
+//             }
+
+//             &:hover {
+//                 color: $colorLinkHoverLight;
+//             }
+
+//             &:hover:before  {
+//                 color: $colorLinkHoverLight;
+//             }
+
+//             &:hover {
+//                 .count {
+//                     color: $colorLinkHoverLight;
+//                 }
+//             }
+
+//             .count {
+//                 color: $colorGray;
+//                 margin-left: .2em;
+//             }
+//         }
+
+//         .sidebar-nav-item-actions {
+//             position: absolute;
+//             top: 0;
+//             right: 0;
+//             bottom: 0;
+
+//             text-align: right;
+//             font-size: .9em;
+//         }
+
+//             .sidebar-nav-item-action {
+//                 display: table;
+//                 height: 100%;
+//                 padding: 0 1.5em;
+
+//                 cursor: pointer;
+//                 color: $colorGray; // right arrows
+
+//                 &:hover {
+//                     color: $colorLinkHoverLight;
+//                 }
+
+//                 span {
+//                     display: table-cell;
+//                     vertical-align: middle;
+//                 }
+//             }
+
+//                 .sidebar-nav-item-action-icon {
+//                     &:before {
+//                         font-size: .75em;
+//                     }
+
+//                     &.icon-pin:before {
+//                         font-size: 1.1em;
+//                     }
+//                 }
+
+//     .sidebar-drawer {
+//         position: absolute;
+//         left: 100%;
+//         top: 0;
+//         bottom: 0;
+//         width: $layoutSidebarWidth;
+//         padding: 0.25em;
+//         background-color: $colorGrayLight;
+//         overflow: auto;
+//         @include box-shadow(4px 0px 8px -2px rgba(31, 33, 34, 0.06));
+
+//     }
+
+//         .sidebar-drawer-list {
+//             padding: 1em 1.2em .8em 1.5em;
+//         }
+
+//             .sidebar-drawer-list-item {
+//                 padding: 0.7em 0;
+
+//                 font-size: 0.95em;
+
+//                 .has-more-items {
+//                     width: 85%;
+//                 }
+
+//                 .more-items {
+//                     float: right;
+
+//                     cursor: pointer;
+
+//                     &:before {
+//                         //color: #445564;
+//                         font-size: .7em;
+//                     }
+//                 }
+
+//                 a {
+//                     display: inline-block;
+//                     color: $colorGrayLightDark;
+//                 }
+
+//                 a:hover {
+//                     color: $colorLinkHoverLight;
+//                 }
+
+//                 ul {
+//                     margin: 0.7em 0 0 1.8em;
+//                 }
+
+//                 li {
+//                     padding: 0.4em 0;
+//                 }
+//             }
+
+//     .sidebar-account {
+//         position: absolute;
+//         right: 0;
+//         bottom: 0;
+//         left: 0;
+//         padding: 1.5em 1.5em 2.5em 1.5em;
+//         font-size: 0.95em;
+//         background-color: $colorWhite;
+
+//         .avatar-list {
+//             .avatar {
+//                 margin-left: 0;
+//                 border: none;
+//             }
+
+//             .label {
+//                 font-size: 1.05em;
+//                 color: $colorGrayLightDark;
+
+//                 &:hover {
+//                 color: $colorLinkHoverLight;
+//                 }
+//             }
+//         }
+//     }
+
+//         .sidebar-account-link {
+//             display: block;
+//             padding: 1em 0 0 0;
+
+//             &:hover {
+//                 color: $colorLinkHoverLight;
+//             }
+//         }
+
+//         .sidebar-feedback-link {
+//             color: $colorWhite;
+//             font-weight: bold;
+//             position: absolute;
+//             bottom: 100%;
+//             left: 0;
+//             right: 0;
+//             padding: 1em;
+//             background-color: $colorGreenLight;
+
+//             &:hover {
+//                 background-color: $colorGreenMid;
+//             }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+OLD SIDEBAR
+
+.sidebar-menu-link {
+    position: fixed;
+    left: 0;
+    top: 66px;
+    padding: .6em 1.4em;
+    z-index: 21;
+    color: $colorGrayDark;
+    font-size: 1.2em;
+
+    &:before {
+        color: red;
+    }
+}
+
+.sidebar {
+    display: none;
+    position: fixed;
+    top: $layoutHeaderHeight;
+    bottom: 0;
+    width: 55px;
+    //height: 100%;
+    z-index: 22;
+    //padding: 0.75em 0 0 0;
+    background-color: #E8E9EB; // background color for sidebar
+    color: $colorGrayLightDark; // menu text color
+    //opacity: 0;
+    @include box-shadow(inset -2px 0px 6px -5px rgba(31, 33, 34, .57));
+    @include transition(opacity 100ms);
+
+    &.show {
+        display: block;
+        //opacity: 1;
+    }
+
+    &.show-pinned {
+        display: block!important;
+        opacity: 1!important;
+
+        .icon-pin:before {
+            color: $colorLinkHoverLight;
+        }
+    }
+}
+    .sidebar-nav {
+        padding: 1.2rem 0 0 0;
+    }
+
+        .sidebar-nav-item {
+            position: relative;
+
+            white-space: nowrap;
+
+            &.link:hover {
+                .sidebar-nav-item-action {
+                    background-color: shade($colorGrayLight, 2%); // hover on arrow background
+                }
+            }
+
+            &.link.active {
+                .sidebar-nav-item-action {
+                    background-color: shade($colorGrayLight, 2%); // hover on arrow background
+                }
+            }
+
+            &.link:hover,
+            &.link.active {
+                background-color: $colorWhite; // hover on menu background
+                @include box-shadow(inset -2px 0px 6px -5px rgba(31, 33, 34, .57));
+            }
+
+            &.link.active .sidebar-nav-item-action {
+                color: $colorLinkHoverLight;
+            }
+        }
+
+        .sidebar-nav-item-link {
+            display: inline-block;
+            width: 80%;
+            padding: 1em 0 1em 1.3em;
+
+            font-size: 1.05em;
+            vertical-align: middle;
+
+
+            &:before {
+                //display: none;
+                margin: -0.2em 0.5em 0 0;
+
+                color: $colorGrayMidDark; // menu icons
+                font-size: 1.1em;
+            }
+
+            &:hover {
+                color: $colorLinkHoverLight;
+            }
+
+            &:hover:before  {
+                color: $colorLinkHoverLight;
+            }
+
+            &:hover {
+                .count {
+                    color: $colorLinkHoverLight;
+                }
+            }
+
+            .count {
+                color: $colorGray;
+                margin-left: .2em;
+            }
+        }
+
+        .sidebar-nav-item-actions {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+
+            text-align: right;
+            font-size: .9em;
+        }
+
+            .sidebar-nav-item-action {
+                display: table;
+                height: 100%;
+                padding: 0 1.5em;
+
+                cursor: pointer;
+                color: $colorGray; // right arrows
+
+                &:hover {
+                    color: $colorLinkHoverLight;
+                }
+
+                span {
+                    display: table-cell;
+                    vertical-align: middle;
+                }
+            }
+                .label {
+                    display: none;
+                    }
+                .sidebar-nav-item-action-icon {
+                    &:before {
+                        font-size: .75em;
+                    }
+
+                    &.icon-pin:before {
+                        font-size: 1.1em;
+                    }
+                }
+
+    .sidebar-drawer {
+        position: absolute;
+        left: 100%;
+        top: 0;
+        bottom: 0;
+        width: $layoutSidebarWidth;
+        padding: 0.25em;
+        background-color: $colorGrayLight;
+        overflow: auto;
+        @include box-shadow(4px 0px 8px -2px rgba(31, 33, 34, 0.06));
+
+    }
+
+        .sidebar-drawer-list {
+            padding: 1em 1.2em .8em 1.5em;
+        }
+
+            .sidebar-drawer-list-item {
+                padding: 0.7em 0;
+
+                font-size: 0.95em;
+
+                .has-more-items {
+                    width: 85%;
+                }
+
+                .more-items {
+                    float: right;
+
+                    cursor: pointer;
+
+                    &:before {
+                        //color: #445564;
+                        font-size: .7em;
+                    }
+                }
+
+                a {
+                    display: inline-block;
+                    color: $colorGrayLightDark;
+                }
+
+                a:hover {
+                    color: $colorLinkHoverLight;
+                }
+
+                ul {
+                    margin: 0.7em 0 0 1.8em;
+                }
+
+                li {
+                    padding: 0.4em 0;
+                }
+            }
+
+    .sidebar-account {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 1.5em 1.5em 2.5em 1.5em;
+        font-size: 0.95em;
+        background-color: $colorWhite;
+
+        .avatar-list {
+            .avatar {
+                margin-left: 0;
+                border: none;
+            }
+
+            .label {
+                font-size: 1.05em;
+                color: $colorGrayLightDark;
+
+                &:hover {
+                color: $colorLinkHoverLight;
+                }
+            }
+        }
+    }
+
+        .sidebar-account-link {
+            display: block;
+            padding: 1em 0 0 0;
+
+            &:hover {
+                color: $colorLinkHoverLight;
+            }
+        }
+
+        .sidebar-feedback-link {
+            color: $colorWhite;
+            font-weight: bold;
+            position: absolute;
+            bottom: 100%;
+            left: 0;
+            right: 0;
+            padding: 1em;
+            background-color: $colorGreenLight;
+
+            &:hover {
+                background-color: $colorGreenMid;
+            }
+}

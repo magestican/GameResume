@@ -1,0 +1,104 @@
+.breadcrumbs {
+    height: 100%;
+}
+ 
+    .breadcrumb {
+        position: relative;
+        float: left;
+        height: 100%;
+        line-height: 0;
+        font-size: 0;
+        vertical-align: top;
+
+    
+        &:hover .breadcrumb-dropdown,
+        .breadcrumb-link:hover {
+            background-color: #3da5e5;
+            @include transition(background-color 300ms);
+    
+            em {
+                opacity: 1;
+            }
+
+            &:after {
+                border-color: transparent transparent transparent $colorPrimaryMid;
+            }
+        }
+
+        &:first-child {
+            .breadcrumb-link {}
+            .dropdown-menu {}
+        }
+
+        &:last-child {
+            .breadcrumb-link em {
+                font-weight: bold;
+                opacity: 1;
+            }
+
+            .breadcrumb-dropdown {
+
+            }
+        }
+
+        .dropdown-list {
+            max-height: none;
+            min-width: 14em;
+        }
+    }
+
+        .breadcrumb-link,
+        .breadcrumb-dropdown {
+            position: relative;
+            display: inline-block;
+            height: inherit;
+
+            font-size: 1.13rem;
+
+        }
+
+        .breadcrumb-link {
+            padding: 0 1.5em 0 1.5em;
+
+            vertical-align: bottom;
+            line-height: .25;
+
+            em {
+                display: block;
+                position: relative;
+                top: 46%;
+                opacity: 0.6;
+            }
+        }
+
+        .breadcrumb-dropdown {
+            position: relative;
+            width: 1.75em;
+
+            &:hover{
+                span {
+                    @include transform(rotate(0));
+                }
+            }
+
+            span {
+                display: block;
+                position: relative;
+                left: 0;
+                top: 50%;
+                width: 100%;
+                @include transition(transform 300ms);
+                @include transform(rotate(-90deg));
+                
+
+                text-align: center;
+                line-height: 0;
+
+                &:before {
+                    @extend .icon-class;
+                    @include icon("\e63d", .60rem, shade($colorPrimaryMid, 40));
+                    margin: 0;
+                    line-height: 0;
+                }
+            }
+        }

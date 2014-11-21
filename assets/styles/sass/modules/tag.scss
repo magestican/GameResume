@@ -1,0 +1,93 @@
+.tag-category {
+    display: inline-block;
+    margin: 0 0.5em 0.5em 0;
+}
+
+.tag {
+    @extend .group;
+
+    display: inline-block;
+    margin: .5em .5em 0 0;
+    //height: 100%;
+    padding: 0.45rem 0.65rem;
+    background-color: #EFF8FF;
+    //@include background-image(linear-gradient(#E8F3FC, shade(#E8F3FC, 2%)));
+    //border: 1px solid #CEDDEB;
+    border-radius: 4px;
+    @include box-shadow(0 1px 0 0px #CADDEE);
+
+    color: #687F99;
+    line-height: 1;
+    vertical-align: middle;
+    @extend .semibold;
+   
+    &:hover {
+        @include background-image(linear-gradient(tint(#EFF8FF, 30%), tint(#EFF8FF, 50%)));
+        //border: 1px solid shade(#CEDDEB, 5%);
+
+    }
+
+    &.count {
+        .tag-count {
+            display: inline-block;
+        }
+    }
+
+    &.count-only {
+        .tag-count {
+
+        }
+    }
+
+    &.remove {
+        .tag-remove {
+            display: inline-block;
+        }
+    }
+
+    &.remove-only {
+        .tag-remove {
+            padding-left: 0.1em;
+        }
+    }
+}
+    
+    .tag-value,
+    .tag-count,
+    .tag-remove {
+        display: inline-block;
+        margin: 0;
+        
+        line-height: 1;
+        vertical-align: middle;
+    }
+
+    .tag-value,
+    .tag-count {
+        font-size: .9em;
+    }
+
+    .tag-value {
+
+    }
+
+    .tag-count {
+        display: none;
+    }
+
+    .tag-remove {
+        display: none;
+        //padding: 0 $tagPadding 0 $tagPadding;
+
+        &:before {
+            margin: 0;
+            @include transition(300ms color);
+            
+            color: #C1D4E6;
+            font-size: 1.1em;
+        }
+
+        &:hover:before {
+            color: $colorPrimaryDark;
+        }
+    }

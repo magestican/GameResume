@@ -1,0 +1,47 @@
+.footer {
+    color: $colorGray;
+    clear: both;
+    padding: 3em 0 2em 0;
+    
+    text-align: center;
+    vertical-align: middle;
+
+    .icon-rocket {
+        @include transition(transform 3000ms ease-in);
+
+        font-size: 1em;
+
+        &:before {
+            font-size: 1.8em;
+        }
+
+        &.launch-rocket {
+            @include transform(translate3d(2000px, -2000px,0));
+        }
+    }
+
+    .divider {
+        display: inline-block;
+        width: 1px;
+        height: 30px;
+        margin: 0 1em;
+        background-color: $colorGrayMid;
+    }
+
+    > * {
+        vertical-align: middle;
+    }
+
+    a {
+        display: inline-block;
+        margin: 0 1em 0 0;
+
+        &:hover {
+            color: $colorLinkHoverLight;
+        }
+    }
+
+    a.ux-home-link {
+        margin: 0;
+    }
+}

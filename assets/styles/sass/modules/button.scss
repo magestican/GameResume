@@ -1,0 +1,491 @@
+//Gray
+$btnBackground:                     #F8F9FA;
+$btnBackgroundHighlight:            tint($btnBackground, 20%);
+$btnBorder:                        #E8EBEE;
+
+$btnPrimaryBackground:              $colorLink;
+$btnPrimaryBackgroundHighlight:     adjust-hue($btnPrimaryBackground, 20%);
+
+$btnInfoBackground:                 #5bc0de;
+$btnInfoBackgroundHighlight:        #2f96b4;
+
+$btnSuccessBackground:              $colorGreenLight;
+$btnSuccessBackgroundHighlight:     $colorGreenMid;
+
+$btnWarningBackground:              tint(#f89406, 15%);
+$btnWarningBackgroundHighlight:     #f89406;
+
+$btnDangerBackground:               $colorRedMid;
+$btnDangerBackgroundHighlight:      $colorRedDark;
+
+$btnInverseBackground:              #444;
+$btnInverseBackgroundHighlight:     #222;
+
+button {
+    background: none;
+    border: none;
+}
+
+.btn {
+    color: $colorGrayMidDark;
+    position: relative;
+    display: inline-block;
+    padding: $padding;
+    margin-bottom: 0;
+    background-color: $colorWhite;
+    border: 1px solid transparent;
+    @include border-radius($borderRadius);
+    @include transition(padding 500ms);
+
+    font-size: .95rem;
+    line-height: 1rem;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+        background-color: #ffffff;
+        @include box-shadow(0 1px 1px 0 rgba(189,196,201,.5));
+        color: $colorGrayDark;
+        text-decoration: none;
+        &.dropdown-indicator:after {
+            color: $colorGrayDark;
+        }
+    }
+
+    &.active,
+    &:active {
+        background-image: none;
+        outline: 0;
+        @include box-shadow(inset 0 1px 2px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05));
+    }
+
+    &.disabled,
+    &.disabled:hover,
+    &[disabled],
+    &[disabled]:hover {
+        cursor: default;
+        background-image: none;
+        border: 1px solid $btnBorder;
+        opacity: .50;
+        @include box-shadow(none);
+    }
+
+    &.hidden {
+        visibility: hidden;
+    }
+
+    &.icon-only:before, &.icon-blue:before {
+        font-size: 1.3em;
+        margin: 0;
+    }
+
+    &.icon-only:before {
+        color: $colorGrayMidDark;
+    }
+
+    &.icon-blue:before {
+        color: $colorPrimaryLight;  
+    }
+
+    &.icon-only:hover, &.icon-blue:hover  {
+        border: 1px solid #d6d6d7;
+    }
+
+    &.icon-only:hover {
+        color: $colorGrayDark; 
+    }
+
+    &.icon-blue:hover  {
+        color: $colorPrimaryDark;
+    }
+
+    &.icon-only:hover:before {
+        color: $colorGrayDark;
+    }
+
+    &.icon-blue:hover:before {
+        color: $colorPrimaryDark;
+    }
+
+    // ADD PROJECT/ASSET LOADER IN BUTTON
+    &.btn-loader {
+        overflow: hidden;
+
+        &.loading {
+            padding-left: 2.5em;
+            
+            .loader {
+                left: 22px;
+            }
+        }
+
+        .loader {
+            position: absolute;
+            left: -30px;
+            top: 19px;
+            @include transition(left 300ms);
+        }
+
+        .loader-item {
+            background-color: #ffffff!important;
+        }
+    }
+}
+
+// STYLING FOR BUTTONS WITH ICONS AND TEXT
+.btn,
+.btn-link {
+    &[class^="icon-"]:not(.icon-only):not('.icon-blue'):before,
+    &[class*="icon-"]:not(.icon-only):not('.icon-blue'):before {
+        margin-right: 0.8em;
+        margin-top: .3em;
+
+        font-size: 0.7rem;
+    }
+
+    &.dropdown-indicator:after,
+    &.icon-only {
+        color: $colorGrayLightDark;
+    }
+    
+    > span {
+        vertical-align: middle;
+    }
+}
+
+    // States //////////////////////////
+
+    .btn-large {
+        padding: $paddingLarge;
+        font-size: 1.2em;
+        @include border-radius($borderRadius);
+    }
+
+    .btn-small {
+        padding: $paddingSmall;
+        @include border-radius($borderRadius);
+
+        font-size: .9em;
+    }
+
+    .btn-mini {
+        padding: $paddingMini;
+        @include border-radius($borderRadius);
+        
+        font-size: .8em;
+    }
+
+    .btn-block {
+        display: block;
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        @include box-sizing(border-box);
+    }
+
+    .btn-block + .btn-block {
+        margin-top: 5px;
+    }
+
+    input[type="submit"],
+    input[type="reset"],
+    input[type="button"] {
+        &.btn-block {
+            width: 100%;
+        }
+    }
+
+    .btn-primary.active,
+    .btn-warning.active,
+    .btn-danger.active,
+    .btn-success.active,
+    .btn-info.active,
+    .btn-inverse.active {
+        color: rgba(255,255,255,.75);
+    }
+
+    // Colors //////////////////////////
+
+    // FILTER DROPDWON BUTTON
+    .btn-filter.dropdown-indicator {
+        color: $colorGrayMidDark;
+        background-color: rgba(230, 235, 237, 0);
+        border: 1px solid transparent;
+        border-bottom-color: none;
+        @include box-shadow(none);
+
+        &:after,
+        &.icon-only {
+            color: $colorGray;
+        }
+
+        &:hover,
+        &:focus,
+        .dropdown-show &  {
+            background-color: #ffffff;
+            @include box-shadow(0 1px 1px 0 rgba(189,196,201,.5));
+
+            color: $colorGrayDark;
+       
+            &:after,
+            &.icon-only {
+                color: $colorGrayDark;
+            }
+        }
+    }
+
+
+    // GREEN BUTTON
+
+    .btn-success {
+        background-color: $colorGreenMid;
+        color: white;
+        //border-color: shade($colorGreenMid, 13%);
+
+
+        &.active,
+        &:active {
+            background-color: $colorGreenMid;
+            color: blue;
+            @include box-shadow(inset 0 1px 2px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05));
+        }
+
+        &:hover,
+        &:focus {
+            color: white;
+            background-color: shade($colorGreenMid, 10%);
+            @include box-shadow(0 1px 1px 0 rgba(189,196,201,.5));
+            //border-color: shade($colorGreenMid, 50%);
+        }
+
+        &.disabled,
+        &.disabled:hover,
+        &[disabled],
+        &[disabled]:hover {
+        }
+    }
+
+    // Red BUTTON
+
+    .btn-danger {
+        background-color: $colorRedMid;
+        color: white;
+        //border-color: shade($colorRedMid, 13%);
+
+
+        &.active,
+        &:active {
+            background-color: $colorRedMid;
+            color: blue;
+            @include box-shadow(inset 0 1px 2px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05));
+        }
+
+        &:hover,
+        &:focus {
+            color: white;
+            background-color: shade($colorRedMid, 10%);
+            @include box-shadow(0 1px 1px 0 rgba(189,196,201,.5));
+            //border-color: shade($colorRedMid, 50%);
+        }
+
+        &.disabled,
+        &.disabled:hover,
+        &[disabled],
+        &[disabled]:hover {
+        }
+    }
+
+
+    // VIEW MODE
+
+    .btn-viewmode {
+        background-color: #FFFFFF;
+        color: blue;
+        @include box-shadow(none);
+            
+        &:before {
+            color: $colorGrayLightDark !important;
+            }
+        
+        &:before {
+            color: $colorGrayMidDark !important;
+            }
+
+
+        &.active,
+        &:active {
+          background-color: #C2C9CE;
+          @include box-shadow(inset 0 1px 2px 0 rgba(189,196,201,.8));
+          &:hover {
+            background-color: #C2C9CE;
+            @include box-shadow(inset 0 1px 2px 0 rgba(189,196,201,.8));
+            &:before {
+              color: $colorGrayMidDark !important;
+            }
+          }
+        }
+        &:hover,
+        &:focus {
+            color: purple !important;
+            background-color: #ffffff;
+            //@include box-shadow(0 1px 1px 0 rgba(189,196,201,.5));
+            border: 1px solid transparent !important;
+            @include box-shadow(0 1px 1px 0 rgba(189,196,201,.5));
+
+            &:before {
+            color: $colorGrayDark !important;
+            }
+        }
+
+        &.disabled,
+        &.disabled:hover,
+        &[disabled],
+        &[disabled]:hover {
+        }
+    }
+
+    // Hacks //////////////////////////
+    
+    button.btn,
+    input[type="submit"].btn {
+        // Firefox 3.6 only I believe
+        &::-moz-focus-inner {
+            padding: 0;
+            border: 0;
+        }
+
+        // IE7 has some default padding on button controls
+        *padding-top: 3px;
+        *padding-bottom: 3px;
+
+        &.btn-large {
+            *padding-top: 7px;
+            *padding-bottom: 7px;
+        }
+
+        &.btn-small {
+            *padding-top: 3px;
+            *padding-bottom: 3px;
+        }
+
+        &.btn-mini {
+            *padding-top: 1px;
+            *padding-bottom: 1px;
+        }
+    }
+    
+    // Links //////////////////////////
+
+    .btn-link {
+        display: inline-block;
+        border-color: transparent;
+        @include border-radius(0);
+
+
+        cursor: pointer;
+        //color: $colorLink;
+        vertical-align: middle;
+
+        &.padding {
+            padding: $padding;
+        }
+
+        &.toggle.icon-add,
+        &.toggle.icon-minus {
+            
+        }
+
+        &.toggle:before {
+            margin-top: 0!important;
+            font-size: 1.2em;
+            display: none;
+
+        }
+    }
+
+    .btn-link:hover,
+    .btn-link:focus {
+        color: $colorLinkHoverLight!important;
+        text-decoration: underline;
+        background-color: transparent;
+    }
+    
+    .btn-link[disabled]:hover,
+    .btn-link[disabled]:focus {
+        color: #333;
+        text-decoration: none;
+    }
+
+    .btn-link,
+    .btn-link:active,
+    .btn-link.disabled,
+    .btn-link[disabled] {
+        background-color: transparent;
+        background-image: none;
+        @include box-shadow(none);
+
+        &:hover {
+            color: inherit;
+            text-decoration: none;
+        }
+    }
+
+// Button Groups //////////////////////////
+
+.btn-group {
+    .btn {
+        margin: 0 -4px 0 0;
+        border-radius: 0;
+    }
+
+    > .btn + .btn {
+        margin-left: -1px;
+    }
+
+    .btn:first-child {
+        border-radius: $borderRadius 0 0 $borderRadius;
+    }
+
+    .btn:last-child {
+        border-radius: 0 $borderRadius $borderRadius 0;
+    }
+}
+
+.btn-group--viewmode {
+    .btn {
+        
+    }
+}
+
+.btn-quick-add {
+    display: block;
+    margin: -1em 0 1.5em 0;
+    padding: 0.75em;
+    color: $colorGray;
+    border: 1px solid transparent;
+    border-radius: $borderRadius;
+    $backgroundColor: tint($colorGrayLight, 70%);
+    background-color: $backgroundColor;
+    text-align: center;
+    cursor: pointer;
+
+    @include transition(all 300ms);
+        
+    &:hover {
+        color: $colorLink;
+        border: 1px solid transparent;
+        $backgroundColor: #FFFFFF;
+        background-color: $backgroundColor;
+        @include box-shadow(0 1px 3px 0 $colorGrayMid);
+    }
+
+    &:before {
+        font-size: .7em;
+    }
+
+    &.icon-add:before {
+        margin-right: .7em;
+    }
+}

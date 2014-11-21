@@ -1,0 +1,151 @@
+.upload-block {
+    position: relative;
+    margin: 0 0 .75em 0;
+    padding: 1.4em 1em;
+    background-color: $colorWhite;
+    border-radius: $borderRadius;
+    @include box-shadow(0px 1px 0px 0 rgba(0,0,0,.07));
+    
+    &:hover {
+        .size-limit {
+            display: block;
+        }
+    }
+
+    .row {
+        position: relative;
+        margin: 0!important;
+    }
+    
+    a {
+        position: relative;
+
+        input {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+    }
+
+    .loader {
+        position: absolute;
+        right: 30px;
+        top: 50%;
+        margin-left: 0;
+    }
+
+    .btn-link {
+        padding-left: 0;
+    }
+
+    .size-limit {
+        //display: none;
+        border-top: 1px solid $colorGrayLightMid;
+        padding: .5em; 
+
+        a {
+            &:hover {
+                color: $colorLinkHoverLight;
+            }
+        }
+
+        .column {
+            margin-bottom: 1em;
+            padding: 0!important;
+            
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .size-limit-message {
+        font-size: .9rem;
+
+        a {
+            color: $colorLink;
+            @extend .bold;
+
+            &:hover {
+                color: $colorLinkHoverDark;
+            }
+         }
+
+        p {
+            margin: 1em 0 1.5em 0;
+
+            font-size: 1.2em;
+        
+            &.error {
+                color: $colorRedMid;
+            }
+        }
+
+        ol {
+            margin: 1em 2em;
+            padding: 0;
+            list-style-type: decimal;
+            list-style-position: outside;
+
+            text-align: left;
+        }
+
+        li {
+            margin: 0 0 .5em 0;
+        }
+    }
+
+    .size-limit-toggle {
+        color: $colorGray;
+        font-size: .85rem;
+        text-align: center;
+    }
+
+    .file-name--upload {
+        //max-width: 80%;
+    }
+}
+
+    .upload-block--fieldset {
+        //width: 100%!important;
+    }
+
+    .upload-block--select {
+        padding: 0;
+
+        font-size: 1.3em;
+        text-align: center;
+
+        .add {
+            display: block;
+            width: 49.9%;
+            float: left;
+            padding: 1em 1em;
+
+            &:hover {
+                color: $colorLink;
+            }
+
+            &:before {
+                font-size: inherit;
+            }
+            
+            &.single {
+                width: 99%;
+            }
+        }
+
+        .divider {
+            display: block;
+            position: absolute;
+            left: 50%;
+            top: 0px;
+            bottom: 0px;
+            width: 10px;
+            border-left: 1px solid $colorGrayLightMid;
+        }
+    }

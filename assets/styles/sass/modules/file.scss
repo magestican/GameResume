@@ -1,0 +1,348 @@
+.selector {
+    display: block;
+
+}
+
+.file-list {
+
+}
+ 
+    .list--expanded .file {
+        position: relative;
+        width: 100%;
+        padding: 2em 2rem 3em 2rem;
+        margin: 0 0 1.5em 0;
+        overflow: hidden;
+        border: 1px solid transparent;
+        background-color: $colorWhite;
+        border: 1px solid $colorGrayLightMid;
+        border-radius: $borderRadius;
+        border-bottom-color: tint($colorGrayMid, 50%);
+
+        @include transition(all 300ms);
+
+        &:hover {
+            border-radius: $borderRadius;
+            @include box-shadow(0 1px 3px 0 $colorGrayMid);
+            //@include box-shadow(0 1px 1px 0 rgba(0,0,0,.1));
+            background-color: $colorWhite;
+
+            .file-details-toggle {
+                bottom: 0;
+            }
+
+            .file-edit, .file-follow, .file-comments {
+                opacity: 1;
+            }
+
+            .file-actions {
+                opacity: .3;
+            }
+
+            .file-link .file-actions {
+                opacity: 1;
+            }
+        }
+
+        &.details {
+            .file-tags,
+            .file-collaborators,
+            .file-sources,
+            .file-chatter,
+            .file-projects {
+                display: block;
+            }
+        }
+
+        .avatar-list {
+            padding-top: 1.2em;
+            margin-bottom: .8em;
+            border-top: 1px solid $colorGrayLightMid;
+
+            &:first-child {
+                padding-top: 0;
+                border-top: none;
+            }
+
+            &.avatar-list--avatar-only {
+                border-top: none;
+                margin: 0;
+                padding-top: 0.5em;
+            }
+        }
+
+            
+
+        .row .column {
+            padding: 0;
+        }
+    
+        .row .column-6 {
+            width: 7.99999%;
+        }
+
+        .file-actions {
+            opacity: 0;
+            @include transition(opacity 300ms);
+        }
+    }
+
+        .file-section {
+            &.primary {
+                float: left;
+                width: 68%;
+                padding: 0 4em 0 0;
+
+                time:not(.htime) {
+                    text-align: right;
+                    font-size: .9em;
+                    color: $colorGray;
+                    display: inline-block;
+                    padding-top: 11px;
+                    float: right;
+                    margin-right: 5px;
+                }           
+        
+            }
+
+            &.secondary {
+                float: right;
+                width: 30%;
+            } 
+    
+        }
+
+            .file-section-title {
+                margin: 0 0 .8em 0;
+
+                font-size: .86em;
+                color: $colorGrayMidDark;
+                text-transform: uppercase;
+            }
+
+            .file-header {
+                margin: 0 0 1.8em 0;
+
+                line-height: 1;
+
+                .title {
+                    float: left;
+                    width: 70%;
+                    text-transform: capitalize;
+
+                    font-size: 1.5em;
+                    @extend .semibold;
+                    color: $colorLink;
+
+                     &:hover {
+                        color: $colorLinkHoverDark;
+                    }
+
+                }
+
+                time {
+                    float: right;
+                    width: 30%;
+                    padding-top: .35em;
+
+                    text-align: right;
+                    font-size: .9em;
+                    color: $colorGray;
+                }
+            }
+
+            .file-link {
+                margin: 0 0 1em 0;
+                padding: .3em;
+                border: 1px solid $colorGrayLightMid;
+                border-radius: $borderRadius;
+
+                font-size: 1em;
+                vertical-align: middle;
+                //@extend .semibold;
+                color: $colorGrayDark;
+
+            }
+
+            .file-url {
+                > span {
+                    vertical-align: middle;
+                }
+
+                &:after {
+                    @extend .icon-class;
+                    @extend .icon-open:before;
+                    opacity: 0;
+                    margin-left: 0.25em;
+                    @include transition(opacity 200ms);
+
+                    font-size: 0.9em;
+                    color: $colorLinkHoverLight;
+                }
+
+                &:hover {
+                    &:after {
+                        opacity: 1;
+                    }
+
+                    color: $colorLinkHoverLight;
+                }
+            }
+
+            .file-actions {
+                a:hover {
+                    color: $colorLinkHoverLight;
+                }
+            }
+
+        .file-preview-wrapper {
+            height: 20em;
+            margin: 0 0 1em 0;
+            //border: 1px solid $colorGrayMid;
+            border-radius: $borderRadius;
+
+        }
+
+            .file-preview {
+                height: inherit;
+            }
+
+            .file-preview--image {
+                background-position: top center;
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+
+            .file-preview--rich {
+                padding-top: 0.05em;
+                //padding-bottom: -1px;
+
+                border-top: 1px solid $colorGrayLightMid;
+                border-left: 1px solid $colorGrayLightMid;
+                border-right: 1px solid $colorGrayLightMid;
+
+            }
+
+            .mask .file-preview--rich {
+                display: none;
+            }
+
+
+        .file-description {
+            margin: 0 0 1em 0;
+
+            line-height: 1.6;
+        }
+
+        .file-sources {
+            display: none;
+            padding: 1em 0;
+
+            color: $colorGrayMidDark;
+        }
+
+            .file-source {
+                margin: .20em 0 .25em 0;
+                padding: 0;
+                //border-bottom: 1px solid $colorGrayLightMid;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+
+                .file-actions {
+                    opacity: 0;
+                    @include transition(opacity 300ms);
+                }
+
+                &:hover {
+                    .file-actions {
+                        opacity: 1!important;
+                    }
+                }
+            }
+
+        .file-tags {
+            display: none;
+            padding: 0 0 1em 0;
+        }
+
+        .file-collaborators {
+            display: none;
+        }
+
+        .file-sub-section {
+            margin: 1em 0 0 0;
+        }
+
+        .file-details-toggle {
+            position: absolute;
+            display: block;
+            padding: 1em;
+            left: 0px;
+            right: 0px;
+            bottom: -4em;
+            background-color: transparent;
+            border-top: 1px solid $colorGrayMid;
+            border-radius: 0 0 $borderRadius $borderRadius;
+            @include transition(all 300ms);
+
+            text-align: center;
+            font-size: .9em;
+
+            &:hover {
+                $backgroundColor: tint($colorGrayLight, 70%);
+                background-color: $backgroundColor;
+            }
+        }
+
+        .file-edit, .file-follow, .file-comments {
+            position: absolute;
+            top: 1em;
+            opacity: 0;
+            @include transition(opacity 300ms);
+        }
+
+        .file-edit {
+            right: 2rem;    
+        }
+
+        .file-follow {
+            right: 5.6rem;
+        }
+
+        .file-comments {
+            right: 8.9rem;
+        }
+
+        .file-chatter{
+            display : none;
+            clear : both;
+            border-top: 1px solid #edeeef;
+            padding-top: 5px;
+        }
+
+[data-content-type],
+.file-version {
+    display: inline-block;
+    width: 3.6em;
+    margin-right: .5em;
+    padding: .41em;
+    border-radius: 2px;
+    background-color: $colorGrayMid;
+    overflow: hidden;
+
+    font-family: "Arial";
+    font-weight: bold;
+    font-size: .7rem;
+    color: #fff;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.file-version {
+    width: auto;
+    margin-left: -0.5em;
+    color: $colorGrayMidDark;
+}

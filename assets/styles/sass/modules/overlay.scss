@@ -1,0 +1,259 @@
+$overlayColumnPadding: .4em;
+$overlayBorderRadius: 6px;
+
+.overlay-mask {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(34,38,42,.85);
+    z-index: 31;
+
+    &.show {
+        display: block;
+    }
+
+    &.loading {
+        &, .loader {
+            display: block;
+        }
+    }
+
+    .loader {
+        display: none;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+
+        .loader-item {
+            background-color: #fff;
+        }
+    }
+}
+
+.overlay {
+    //display: none;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    padding: 86px 0;
+    z-index: 32;
+}
+
+    .overlay-inner {
+        position: relative;
+        border-radius: $overlayBorderRadius;
+        //overflow: hidden;
+        @include box-shadow(0 6px 28px 0 rgba(0,0,0,.35));
+
+        h2, h3 {
+            margin: 0;
+            padding: 0;
+
+            font-size: inherit;
+        }
+    }
+
+@mixin overlay($width) {
+    width: $width;
+    margin-left: (-$width/2);
+}
+
+    .overlay-header,
+    .overlay-footer {
+        padding: 1.4rem 1.4rem;
+        
+        line-height: 1;
+
+        .row:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    
+    .overlay-content, {
+        padding: 2.6rem 2.6rem .1rem 2.6rem;
+        
+        line-height: 1;
+    }
+
+
+    .overlay-header {
+        background-color: $colorBlack;
+        border-radius: $overlayBorderRadius $overlayBorderRadius 0 0;
+
+        font-size: 1.5em;
+        color: $colorWhite;
+
+        h2 {
+            float: left;
+            color: inherit;
+        }
+    }
+
+    .overlay-close {
+        display: block;
+        float: right;
+
+        color: $colorGrayLightDark;
+
+        &:before {
+            margin: 0;
+        }
+
+        &:hover {
+        color: $colorGrayMidDark;    
+        }
+    }
+
+    .overlay-content {
+        background-color: $colorGrayLight
+    }
+
+    .overlay-footer {
+        background-color: $colorGrayMid;
+        border-radius: 0 0 $overlayBorderRadius $overlayBorderRadius;
+    }
+
+.overlay--project,
+.overlay--file,
+.overlay--user {
+    @include overlay(720px);
+
+    .toggle-tags {
+        padding-left: 0;
+
+        font-size: .9em;
+    }
+
+    .request-link {
+        color: $colorGrayMidDark;
+        font-size: .9em;
+        vertical-align: top;
+    }
+}
+
+.overlay--form {
+    .overlay-content {
+
+    }
+
+    .row {
+        margin: 0 0 1.4em 0;
+
+        
+        .column {
+            padding: 0 $overlayColumnPadding;
+
+            &:first-child {
+                padding-left: 0;
+            }
+        }
+
+        .dropdown--select .dropdown-menu {
+            left: $overlayColumnPadding;
+            right: $overlayColumnPadding;
+        }
+    }
+
+    .row--tags-input {
+        margin-bottom: 0;
+    }
+
+    form {
+        //width: 70%;
+        //color: $colorGrayMidDark;
+    }
+
+    fieldset {
+        display: block;
+        //width: 60%;
+        margin-bottom: 2em;
+    }
+
+    legend {
+        padding: 0 0 .9em 0;
+
+        font-size: 1.3em;
+        color: $colorGrayDark;
+    }
+
+    label {
+        font-size: .9em;
+
+        margin-bottom: .4em;
+    }
+
+    textarea {
+        height: 8em;
+    }
+    
+    [class*="column"] + [class*="column"]:last-child {
+        float: left;
+    }
+
+    [class*="column"]:first-child {
+        //padding-left: 0;
+    }
+
+}
+
+.overlay--file {
+    .add-source-file {
+        margin: .4em 0 0 0;
+
+        font-size: .9em;
+
+        &:before {
+            font-size: .07rem;
+        }
+
+        &:hover {
+            color: $colorLinkHoverLight;    
+        }
+    }
+}
+
+.overlay-modal {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(34,38,42,.75);
+    border-radius: $overlayBorderRadius;
+    z-index: 25;
+}
+
+    .modal {
+        position: absolute;
+        left: 45%;
+        top: 10%;
+        width: 60%;
+        margin: 0 0 0 -25%;
+        padding: 2em;
+        background-color: #f0f1f2;
+        border-radius: $borderRadius;
+        @include box-shadow(0 6px 28px 0 rgba(0,0,0,.35));
+    }
+
+        .modal-message {
+            text-align: center;
+            font-size: 1.5em;
+            line-height: 1em;
+        }
+
+        .modal-options {
+            text-align: center;
+
+            .btn {
+                display: block;
+                margin: 0 0 .25em;
+            
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }

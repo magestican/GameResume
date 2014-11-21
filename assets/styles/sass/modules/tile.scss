@@ -1,0 +1,224 @@
+.tiles {
+    //margin-bottom: 3em;
+    //border-bottom: 1px solid $colorGrayLightMid;
+}
+
+    .list--expanded .tile {
+        float: left;
+        width: 19.5em;
+        margin: 0 2.8em 3.2em 0;
+
+        &:hover {
+            .tile-rollup {
+                color: $colorGray;
+            }
+        }
+    }
+
+        .list--expanded > .tile:nth-of-type(3n) {
+            margin-right: 0;
+        }
+
+        .tile-title {
+            text-transform: capitalize;
+            color: $colorLink;
+            font-size: 1.3em;
+                
+            &:hover {
+                color: $colorLinkHoverDark;
+            }
+        }
+
+        .tile-content {
+            height: inherit;
+
+        }
+
+        .tile-rollup {
+            @include transition(300ms color);
+
+            color: $colorGrayMid;
+
+            a {
+                display: inline-block;
+
+                font-family: "ProximaNovaSoft-SemiBold";
+                line-height: 0;
+                font-size: 1em;
+
+                &:hover {
+                    color: $colorLinkHoverLight;
+                    @include transition(300ms color);
+                }
+
+                &:before {
+                    margin-right: .2em;
+                }
+            }
+        }
+
+    .list--expanded .tile--project {
+
+        .tile-title {
+            display: block;
+            margin: 0 0 .5em 0;
+            text-transform: capitalize;
+        }
+
+        .tile-content {
+            background-color: $colorWhite;
+            border-radius: $borderRadius;
+            //@include box-shadow(0 1px 1px 0 $colorGrayMid);
+            @include transition(box-shadow 300ms);
+
+
+            &:hover {
+            @include box-shadow(0 2px 3px 0 $colorGrayMid);
+            background-color: $colorWhite;
+
+             }
+        }
+    
+        .tile-image {
+            display: block;
+            position: relative;
+            height: 10em;
+            background-color: $colorGray;
+            background-image: url(../../img/icon-project-default.png);
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            border-radius: $borderRadius $borderRadius 0 0;
+
+            &:hover {
+
+                .tile-image-hover {
+                    opacity: 1;
+                }
+            }
+        }
+
+            &.project-color .tile-image {
+                background-size: auto;
+            }
+
+            &.project-color-1 .tile-image {
+                background-color: $colorProject1;
+            }
+
+            &.project-color-2 .tile-image {
+                background-color: $colorProject2;
+            }
+
+            &.project-color-3 .tile-image {
+                background-color: $colorProject3;
+            }
+
+            &.project-color-4 .tile-image {
+                background-color: $colorProject4;
+            }
+
+            &.project-color-5 .tile-image {
+                background-color: $colorProject5;
+            }
+
+            &.project-color-6 .tile-image {
+                background-color: $colorProject6;
+            }
+
+            .tile-image-hover {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                padding: 1em;
+                background-color: rgba($colorGrayLight,0.95);
+                overflow: hidden;
+                text-overflow: ellipsis;
+                opacity: 0;
+                @include transition(opacity 500ms);
+
+                font-size: 1em;
+                line-height: 1.4;
+
+                &:before {
+                    position: absolute;
+                    display: block;
+                    content: '';
+                    bottom: 0;
+                    right: 0;
+                    left: 0;
+                    height: 2em;
+
+                    @include background-image(linear-gradient(bottom, rgba($colorWhite,1), rgba($colorWhite,0)));
+                }
+            }
+
+        .tile-rollup {
+            padding: 1em;
+
+            text-align: right;
+
+            a {
+                margin: 0 0 0 1em;
+            }
+        }
+    }
+
+    .list--compact {
+        .tile-rollup {
+            text-align: right;
+
+            a {
+                margin: 0 0 0 1.2em;
+            }
+        }
+    }
+
+    .list--expanded .tile--user {
+        //width: 19.5em;
+        margin: 0 2.8em 2.4em 0;
+
+        .tile-title {
+            display: block;
+
+            span {
+                display: block;
+            }
+        }
+
+        .tile-subtitle {
+            display: block;
+            padding: 0.75em 0;
+
+            color: $colorGrayMidDark;
+        }
+
+        .tile-image {
+            display: block;
+            float: left;
+            width: 4.5em;
+            height: 4.5em;
+            margin: 0 1em 0 0;
+            background-color: $colorGrayLight;
+            border-radius: $borderRadius;
+            background-size: cover;
+            border: 1px solid $colorGrayLight;
+            @include box-shadow(inset 0px 1px rgba(0,0,0,.10));
+
+        }
+
+        .tile-content {
+            float: left;
+            max-width: 12em;
+        }
+
+        .tile-rollup {
+            padding: 1em 0;
+
+            a {
+                margin: 0 1.2em 0 0;
+            }
+        }
+    }

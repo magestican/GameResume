@@ -1,0 +1,73 @@
+.avatar-list {
+    display: block;
+
+    a {
+        display: inline-block;
+
+        font-size: .9rem;
+
+        &:after {
+            margin: 0;
+        }
+    }
+    
+    .avatar-td,
+    .avatar {
+        width: 2.5rem;
+        height: 2.5rem;
+        padding: 0 0 0.5em 0;
+    }
+
+    .avatar {
+        display: inline-block;
+        margin: 0 .5em;
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: $borderRadius;
+        border: 1px solid $colorGrayLight;
+        @include box-shadow(inset 0px 1px rgba(0,0,0,.10));
+
+        vertical-align: middle;
+    }
+
+    .label {
+        position: relative;
+        display: block;
+        margin: 0 0 .2em 0;
+
+        font-size: 1.1em;
+        color: $colorLink;
+        @extend .semibold;
+
+        &:hover {
+            color: $colorLinkHoverDark;
+        }
+    }
+
+    .sub-label {
+        color: $colorGrayMidDark !important;
+    }
+}
+
+.avatar-list--secondary {
+    .avatar-td,
+    .avatar {
+        width: 2.8rem;
+        height: 2.8rem;
+    }
+
+    .avatar {
+        margin: 0 .5em 0 0;
+    }
+}
+
+.avatar-list--avatar-only {
+    .title {
+        display: inline-block;
+        margin: 0 0.5em 0 0;
+
+        font-size: 1em;
+        color: $colorGray;
+    }
+}

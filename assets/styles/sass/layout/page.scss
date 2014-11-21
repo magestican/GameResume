@@ -1,0 +1,65 @@
+.page-wrapper {
+    position: relative;
+    padding: $layoutHeaderHeight 0 0 0;
+    @include box-sizing(content-box);
+}
+
+.content-wrapper {
+    width: 100%;
+    padding: 0;
+
+}
+
+    .content {
+        margin: 0 0 0 0;
+        padding: 2.5rem 3rem 1rem 3rem;
+    }
+
+        /*[data-page="files"] .content {
+            padding-top: 1rem;
+        }*/
+
+        .content-inner {
+            width: $layoutContentWidth;
+            margin: 0 auto;
+        }
+
+.section-empty {
+    padding: 4em 0 4em 0;
+
+    color: $colorGrayMid;
+    text-align: center;
+
+    .icon-sad,
+    .icon-sad:before {
+        font-size: 4rem;
+    }
+
+    p {
+        margin: 2em 0 0 0;
+        color: $colorGray;
+
+        font-size: 1.5rem;
+        line-height: 1.2em;
+    }
+
+    a {
+        color: $colorLink;
+    
+        &:hover {
+            color: $colorLinkHoverDark;
+        }
+    }
+}
+
+.section-divider {
+    margin-bottom: 3.2em;
+}
+
+.section-divider-padding {
+    padding-bottom: 3.2em;
+}
+
+.section-divider-line {
+    border-bottom: 1px solid $colorGrayMid;
+}

@@ -1,0 +1,540 @@
+html, body {
+    //height: 100%;
+}
+
+html {
+    background-color: $colorGrayLight;
+
+    font-family: "ProximaNovaSoft", Arial, sans-serif;
+    font-size: 14px;
+    color: $colorGrayLightDark;
+
+    @include experimental(font-smoothing, antialiased);
+}
+
+body {
+    position: relative;
+    margin: 0;
+    min-width: $layoutMinWidth;
+
+    @include box-sizing(border-box);
+}
+
+img {
+    max-width: 100%;
+}
+
+strong {
+    font-weight: 100;
+    font-family: "ProximaNovaSoft-SemiBold", Arial, sans-serif;
+}
+
+.bold {
+    font-family: "ProximaNovaSoft-Bold", Arial, sans-serif;
+}
+
+.semibold {
+    font-family: "ProximaNovaSoft-SemiBold", Arial, sans-serif;
+}
+
+a,
+a:before {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover,
+a:hover:before,
+a:hover:after,
+a.active,
+a.active:before,
+a.active:after {
+    //color: $colorPrimaryMidHover !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    position: relative;
+
+    font-weight: normal;
+    font-size: 1rem;
+    color: $colorGrayLightDark;
+}
+
+h1 {
+    font-size: 1.5em;
+}
+
+h2 {
+    font-size: 1.6rem;
+
+    .count {
+        color: $colorGray;
+    }
+}
+
+h3, h4 {
+    margin-top: 1.8em;
+    margin-bottom: 1.4em;
+
+    font-size: 1.1rem;
+}
+
+h4 {
+    margin: 0 0 2em 0;
+    
+    color: $colorGrayMidDark;
+    font-size: .85em;
+    text-transform: uppercase;
+    vertical-align: middle;
+
+    span {
+        vertical-align: middle;
+    }
+
+    .count {
+        float: right;
+        color: $colorLink;
+
+        white-space: nowrap;
+
+        &:hover {
+            color: $colorLinkHoverDark;
+        }
+    }
+
+    .field-help {
+        margin-left: 0.2em;
+    }
+}
+
+hr {
+    height: 1px;
+    padding: 0em 0;
+    border: none;
+    background-color: $colorGrayLightMid;
+}
+
+p {
+    
+    margin: 0 0 1em 0;
+    color: $colorGrayDark;
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+//Placehoder Text
+::-webkit-input-placeholder { /* WebKit browsers */
+    color: $colorGray;
+    @include experimental(font-smoothing, antialiased);
+    font-family: "ProximaNovaSoft", Arial, sans-serif !important; 
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: $colorGray;
+    @include experimental(font-smoothing, antialiased);
+    font-family: "ProximaNovaSoft", Arial, sans-serif !important;    
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: $colorGray;
+    @include experimental(font-smoothing, antialiased);
+    font-family: "ProximaNovaSoft", Arial, sans-serif !important;    
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: $colorGray;
+    @include experimental(font-smoothing, antialiased);
+    font-family: "ProximaNovaSoft", Arial, sans-serif !important;    
+}
+
+.group:before,
+.group:after {
+    content: " ";
+    display: table;
+}
+
+.group:after {
+    clear: both;
+}
+
+.visually-hidden {
+    position: absolute !important;
+    height: 1px; width: 1px; 
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+.apex-output-panel {
+    display: none;
+}
+
+.truncate {
+    white-space: nowrap;
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+.truncate-fade {
+    position: relative;
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 4em;
+        //@include background-image(linear-gradient(left, rgba(255,255,255,0), rgba(255,255,255,1)));
+        @include transition(all 300ms);
+    }
+}
+
+/*.url-wrap {
+    -ms-word-break: break-all;
+    word-break: break-all;
+
+    // Non standard for webkit
+    word-break: break-word;
+
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+}*/
+
+.border-box {
+    @include box-sizing(border-box);
+}
+
+.hidden {
+    display: none;
+}
+
+.rich-text span {
+    color: inherit!important;
+    font-size: inherit!important;
+    line-height: inherit!important;
+}
+
+.global-zeroclipboard-container {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    &.active {
+        display: block;
+    }
+}
+
+.markdown-html {
+    //http://daringfireball.net/projects/markdown/basics
+
+    p {
+        //margin-top: 1em;
+        //margin-bottom: 1em;
+        color: $colorGrayDark;
+        line-height: 1.6;  
+    }
+
+    ul {
+        color: $colorGrayDark;
+        list-style-type: disc;
+        list-style-position: outside;
+        margin: 0 0 0 2.3em;
+    }
+
+    li:last-child {
+        margin-bottom: 1.0em;
+    }
+
+    ol {
+        color: $colorGrayDark;
+        list-style-type: decimal;
+        list-style-position: inside; 
+        margin-bottom: 1em; 
+    }
+
+    li {
+        color: $colorGrayDark;
+        line-height: 1.6; 
+    }
+
+    em,
+    strong {
+        font-family: "ProximaNovaSoft";
+    }
+
+    h1, 
+    h2, 
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: $colorGrayDark;
+        margin: 0 0 1em 0;
+        font-size: 1em;
+        line-height: 1.6;  
+    }
+
+    h1{
+        margin: 1.1em 0 0.25em 0;
+        //color: $colorGrayMidDark;
+    }
+
+    // ul {
+    //     margin-bottom: 1em;
+    // }
+
+    a {
+        color: $colorLink;
+        text-decoration: underline;
+
+        &:hover {
+            color: $colorLinkHoverDark;
+        }
+    }
+}
+
+.loader {
+    display: block;
+
+    &.center {
+        margin: 0.25em auto 1em auto;
+    }
+}
+
+.loader-1 {
+    $width: 99px;
+    $height: 12px;
+
+    position: relative;
+    width: $width;
+    height: $height;
+    margin: (-$height/2) 0 0 (-$width/2);
+
+    .loader-item {
+        display: block;
+        position: absolute;
+        top: 0;
+        background-color: $colorPrimaryLight;
+        width: 12px;
+        height: 12px;
+        border-radius: 8px;
+        @include animation(loader-1 1.3s infinite);
+        @include transform(scale(.3));
+    }
+
+    .loader-item-1 {
+        left: 0;
+        @include animation-delay(0.52s);
+    }
+
+    .loader-item-2 {
+        left: 12px;
+        @include animation-delay(0.65s);
+    }
+
+    .loader-item-3 {
+        left: 25px;
+        @include animation-delay(0.78s);
+    }
+
+    .loader-item-4 {
+        left: 37px;
+        @include animation-delay(0.91s);
+    }
+
+    .loader-item-5 {
+        left: 50px;
+        @include animation-delay(1.04s);
+    }
+
+    .loader-item-6 {
+        left: 62px;
+        @include animation-delay(1.17s);
+    }
+
+    .loader-item-7 {
+        left: 74px;
+        @include animation-delay(1.3s);
+    }
+
+    .loader-item-8 {
+        left: 87px;
+        @include animation-delay(1.43s);
+    }
+}
+
+@include keyframes(loader-1) {
+    0% {
+        @include transform(scale(1));
+        //background-color: $colorPrimaryLight;
+    }
+    100% {
+        @include transform(scale(.3));
+        //background-color: $colorPrimaryLight;
+    }
+}
+
+.loader-2 {
+    $width: 19px;
+    $height: 19px;
+
+    position: relative;
+    width: $width;
+    height: $height;
+    margin: (-$height/2) 0 0 (-$width/2);
+
+    .loader-item {
+        display: block;
+        position: absolute;
+        background-color: #3681CB;
+        width: 4px;
+        height: 4px;
+        border-radius: 3px;
+        @include animation(loader-2 1.04s infinite);
+    }
+
+    .loader-item-1 {
+        left: 0;
+        top: 7px;
+        @include animation-delay(0.39s);
+    }
+
+    .loader-item-2 {
+        left: 2px;
+        top: 2px;
+        @include animation-delay(0.52s);
+    }
+
+    .loader-item-3 {
+        top: 0;
+        left: 7px;
+        @include animation-delay(0.65s);
+    }
+
+    .loader-item-4 {
+        right: 2px;
+        top: 2px;
+        @include animation-delay(0.78s);
+    }
+
+    .loader-item-5 {
+        right: 0;
+        top: 7px;
+        @include animation-delay(0.91s);
+    }
+
+    .loader-item-6 {
+        right: 2px;
+        bottom: 2px;
+        @include animation-delay(1.04s);
+    }
+
+    .loader-item-7 {
+        left: 7px;
+        bottom: 0;
+        @include animation-delay(1.17s);
+    }
+
+    .loader-item-8 {
+        left: 2px;
+        bottom: 2px;
+        @include animation-delay(1.3s);
+    }
+}
+
+.loader-2.alt {
+    $width: 100px;
+    $height: 100px;
+
+    width: $width;
+    height: $height;
+    margin: (-$height/2) 0 0 (-$width/2);
+
+    .loader-item {
+        width: 23px;
+        height: 23px;
+        border-radius: 15px;
+    }
+
+    .loader-item-1 {
+        left:0;
+        top:39px;
+    }
+
+    .loader-item-2 {
+        left:11px;
+        top:11px;
+    }
+
+    .loader-item-3 {
+        top:0;
+        left:39px;
+    }
+
+    .loader-item-4 {
+        right:11px;
+        top:11px;
+    }
+
+    .loader-item-5 {
+        right:0;
+        top:39px;
+    }
+
+    .loader-item-6 {
+        right:11px;
+        bottom:11px;
+    }
+
+    .loader-item-7 {
+        left:39px;
+        bottom:0;
+    }
+
+    .loader-item-8 {
+        left:11px;
+        bottom:11px;
+    }
+}
+
+ @include keyframes(loader-2) {
+    0% {
+        @include transform(scale(1));
+    }
+    100% {
+        @include transform(scale(.3));
+    }
+}
+
+@media print {
+    * {
+        background: transparent !important;
+    }
+    .profile-image,
+    .header-contextual-tabs,
+    .header-contextual-filter,
+    .icon,
+    .sidebar, 
+    .header,
+    .footer {
+        display: none;
+    }
+    body {
+        font-size: 11pt;
+    }
+
+    @page {
+        margin: 1cm;
+    }
+}

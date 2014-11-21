@@ -1,0 +1,121 @@
+.list {
+    .row-header {
+        display: none;
+    }
+
+    .loader {
+        margin: 0.15em auto 1.5em auto;
+    }
+}
+
+.list--compact {
+    .row.row-header {
+        display: block;
+        padding: 0.1em 0;
+
+        &:hover {
+            $backgroundColor: tint($colorGrayLight, 70%);
+            background-color: $backgroundColor;
+        } 
+    }
+
+    .row {
+        padding: 0.5em 0;
+        background-color: transparent;
+        border-bottom: 1px solid $colorGrayMid;
+        @include transition(background-color 300ms);
+    
+        color: shade($colorGray, 20%);
+
+        &.row-header {
+            $backgroundColor: tint($colorGrayLight, 70%);
+            background-color: $backgroundColor;
+
+            @extend .semibold;
+        }
+
+        &:hover {
+            background-color: $colorWhite;
+
+            .actions .btn {
+                opacity: 1;
+            }
+        }
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        .column {
+            position: relative;
+            padding: $padding;
+
+            font-size: .9em;
+            line-height: 1.3;
+        }
+
+        .column-1 {
+            width: 29%;
+        }
+
+        .column-2 {
+            width: 12%;
+        }
+
+        .column-3 {
+            width: 21%;
+        }
+
+        .column-4 {
+            width: 17%;
+        }
+        
+        .column-5 {
+            width: 13%;
+        }
+
+        .column-6 {
+            width: 7.99999%;
+        }
+
+        .column.actions {
+            padding: 0;
+            padding-right: .5em;
+
+            .dropdown-menu {
+                margin-right: .5em;
+            }
+        }
+    }
+    
+    .title {
+        color: $colorGrayLightDark;
+        vertical-align: middle;
+        text-transform: capitalize;
+
+
+        span {
+            vertical-align: middle;
+        }
+
+        &:hover {}
+
+    }
+
+    a {
+        &:hover {
+            color: $colorLink;
+        }
+    }
+
+    .actions .btn {
+        opacity: 0;
+        @include transition(opacity 300ms);
+    }
+
+    &.file-list {
+        .title {
+
+        }
+    }
+}

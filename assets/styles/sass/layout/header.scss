@@ -1,0 +1,204 @@
+.header {
+    //opacity: .97;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    min-width: $layoutMinWidth;
+    height: $layoutHeaderHeight;
+    border-bottom: 1px solid shade($colorPrimaryMid, 7);
+    z-index: 23;
+    background-color: $colorPrimaryMid;
+    //@include background-image(linear-gradient($colorPrimaryMid, $colorPrimaryDark));
+    @include box-shadow(0 0px 1px 0px rgba(20, 84, 121, 1));
+
+    color: $colorWhite;
+
+    .dropdown-indicator:after {
+        color: $colorPrimaryMid;
+    }
+}   
+
+    .header-utilities,
+    .header-utilities-item-group,
+    .header-utilities-item,
+    .header-utilities-breadcrumbs,
+    .header-utilities-actions,
+    .header-utilities-item,
+    .header-action {
+        position: relative;
+        height: inherit;
+    }
+
+
+    .header-utilities {
+        
+    }
+
+        .header-utilities-item-group {
+            
+        }
+
+            .header-utilities-item {
+                
+            }
+
+        .header-utilities-breadcrumbs {
+            float: left;
+
+            > div,
+            .apex-output-panel {
+                height: inherit;
+            }
+
+
+            .apex-form {
+                display: none;
+            }
+        }
+
+        .research-library-header h1 {
+            color: white;
+            padding: .5em;
+        }
+
+        .header-utilities-actions {
+            float: right;
+
+            .header-utilities-item {
+                float: left;
+            }
+        }
+
+            .header-search {
+                margin: 0 1em 0 0;
+
+                .input-wrapper {
+                    position: relative;
+                    top: 50%;
+                    height: 50%;
+                }
+            }
+
+                .header-search-input {
+                    display: block;
+                    position: relative;
+                    top: -71%;
+                    width: 27em;
+                    height: 142%;
+                    margin: 0 0 0 0;
+                    padding: 0 .7em;
+                    background-color: shade($colorPrimaryMid, 28%);
+                    border: none;
+                    @include box-shadow(inset 0 1px 1px 0 shade($colorPrimaryMid, 50%));
+                    @include box-shadow(0 1px 1px 0 rgba(255,255,255, 0.2));
+
+                    padding-left: 2em !important;
+                    background-image: url(../../img/icon-search-header.png);
+                    background-position: left center;
+                    background-repeat: no-repeat;
+
+                    color: $colorWhite;
+
+
+                    &:focus {
+                        border-color: shade($colorPrimaryMid, 50%);
+                        @include box-shadow( 0px 0px 5px 0 rgba(70,205,255,.90), inset 0 1px 1px 0 shade($colorPrimaryMid, 35%));
+
+                    }
+
+                    @mixin headerSearchPlaceholder {
+                        color: rgba(255,255,255, 0.3);
+                        @include experimental(font-smoothing, antialiased);
+                        font-family: "ProximaNovaSoft", Arial, sans-serif !important; 
+                    }
+
+                    &::-webkit-input-placeholder {
+                        @include headerSearchPlaceholder();
+                    }
+
+                    &:-moz-placeholder {
+                        @include headerSearchPlaceholder();
+                    }
+
+                    &::-moz-placeholder {
+                        @include headerSearchPlaceholder();
+                    }
+
+                    &:-ms-input-placeholder {
+                        @include headerSearchPlaceholder();
+                    }
+                }
+            
+            .header-action {
+                float: left;
+                margin-right: .4em;
+
+                &:first-child {
+                    //border-left: 1px solid shade($colorPrimaryMid, 12);
+                }
+
+                > a {
+                    position: relative;
+                    display: block;
+                    height: inherit;
+                    padding: 0 1.6em;
+                    background-color: transparent;
+                    border-left: 1px solid transparent;
+                    border-right: 1px solid transparent;
+                    
+                    line-height: 0;
+                
+                    em {
+                        position: relative;
+                        top: 48%;
+                        display: inline-block;
+                        width: 100%;
+
+                        line-height: 0;
+                        text-align: center;
+                        vertical-align: bottom;
+
+                        &:before {
+                            margin: 0;
+
+                            line-height: 0;
+                        }
+                    }
+                }
+
+                &:hover {
+                    > a {
+                        background-color: #3da5e5;
+                        //@include background-image(linear-gradient(#3f9fd9, #2789c7));
+                        //border-left: 1px solid shade($colorPrimaryMid, 20%);
+                        //border-right: 1px solid shade($colorPrimaryMid, 20%);
+                        @include transition(background-color 300ms);       
+                    }
+                }
+            }
+
+            .header-profile {
+                margin: 0 1em 0 0;
+                padding: 0.35rem 0 0 0;
+
+
+                .dropdown-trigger {
+                    cursor: pointer;
+                }
+
+                .avatar {
+                    @include box-shadow(inset 0px 1px rgba(0,0,0,.3));
+                    border: 1px solid $colorPrimaryLight;
+                    margin-right: 0;
+                    margin-top: .15em;
+                    width: 2.4rem;
+                    height: 2.4rem;
+
+
+                    &:hover {
+                    opacity: 1; 
+
+                    }
+                }
+            }

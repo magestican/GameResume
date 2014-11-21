@@ -1,0 +1,11 @@
+.boost {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 100%;
+}
+
+    .boost.transition,
+    .page-wrapper.transition {
+        @include transition(all 1000ms);
+    }

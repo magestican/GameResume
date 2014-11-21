@@ -1,0 +1,219 @@
+fieldset {
+    width: 100%;
+    min-width: 0;
+}
+
+label {
+    display: block;
+
+    color: $colorGrayLightDark;
+}
+
+label,
+legend {
+    position: relative;
+
+    vertical-align: middle;
+
+    &.collapsed {
+        margin-bottom: 0!important;
+        padding-bottom: 0!important;
+    
+    &:hover{
+        color:$colorPrimaryLight;
+        }
+    }
+
+    .icon {
+        &:hover{
+            color:$colorPrimaryLight;
+        }
+        
+        &:before {
+            margin-top: -0.2em;
+            margin-right: 0.5em;
+            
+            font-size: 0.7rem;
+        }
+    }
+}
+
+input,
+textarea,
+.dropdown-select {
+    display: inline-block;
+    width: 100%;
+    margin: 0;
+    padding: 0.45em 0.55em;
+    border: 1px solid $colorGrayMid;
+    border-radius: $borderRadius;
+    outline: none;
+
+    font-family: "Arial";
+    font-family: "ProximaNovaSoft";
+    font-size: 1em;
+    //line-height: 1;
+    vertical-align: middle;
+    color: $colorGrayDark;
+    //@include box-shadow(inset 0px 4px 2px -4px #E4E6E7);
+    @include box-sizing(border-box);
+    @include transition-property(border, box-shadow);
+    @include transition-duration(300ms);
+
+    &:focus {
+        border-color: $colorPrimaryLight;
+        @include box-shadow(0px 0px 3px 0 rgba(74,165,255,.75), inset 0px 1px 0px 0px tint($colorGrayMid, 50%));
+    }
+}
+
+form.submit .ng-invalid,
+.invalid-search-selection {
+    border: 1px solid $colorRedMid!important;
+    @include box-shadow(0px 0px 3px 0 tint($colorRedLight, 25%), inset 0px 1px 0px 0px tint($colorGrayMid, 50%) !important);
+}
+
+.input--text-select {
+    background-image: url(../../img/icon-dropdown.png);
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+
+.input--search {
+    padding-left: 2em !important;
+    background: url(../../img/icon-search.png) left center no-repeat, url(../../img/icon-search-focus.png) left center no-repeat;
+    background-color: #ffffff!important;
+    //@include box-shadow(inset 0px 4px 2px -4px #E4E6E7);
+    
+    &:focus {
+        background: url(../../img/icon-search-focus.png) left center no-repeat;
+    }
+
+    &.loading {
+        background: url(../../img/icon-search-focus.png) left center no-repeat, url(../../img/ajax-loader-2.gif) right center no-repeat;
+    }
+
+}
+
+.form-errors {
+    margin-bottom: 2.5em;
+    padding: 1.5em;
+    background-color: tint($colorRedLight, 90%);
+    border: 1px solid tint($colorRedDark, 20%);
+    border-radius: $borderRadius;
+
+    color: $colorRedDark;
+
+    li {
+        margin-bottom: .5em;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.required {
+    font-size: .9rem!important;
+    color: tint($colorRedDark, 20%);
+
+    &:before {
+        @extend .icon-class;
+        @extend .icon-required:before;
+        margin: 0!important;
+        
+        font-size: .9rem!important;
+    }
+}
+
+
+.field-help {
+    position: relative;
+    display: inline-block;
+    z-index: 10;
+
+    vertical-align: middle;
+    
+    &:hover {
+        z-index: 12;
+
+        .help-text {
+            display: block;
+        }
+    }
+
+    .help-icon {
+        position: relative;
+        cursor: pointer;
+
+        &:before {
+            font-size: .9rem!important;
+            color: #D1D4D6;
+        }
+
+        &:hover:before {
+            color: $colorLinkHoverLight;
+        }
+    }
+
+    .help-text {
+        display: none;
+        position: absolute;
+        left: 100%;
+        top: 0;
+        width: 20em;
+        margin: 0 0 0 .5em;
+        padding: 1.0em;
+        background-color: $colorWhite;
+        border: 1px solid $colorGrayMid;
+        border-radius: $borderRadius;
+        border-bottom-color: shade($colorGrayMid, 10%);
+        z-index: 100;
+        @include box-shadow( 0 5px 8px -2px  rgba(0,0,0,.15));
+
+        font-size: 1rem;
+        line-height: 1.4em;
+        text-transform: none;
+    }
+}
+
+.formatting-help {
+    margin: 0 0 1em 0;
+}
+
+    .formatting-help-content {
+        margin: 0.5em 0 0;
+        padding: 1em 0;
+        border: 1px solid $colorGrayLightMid;
+        border-left: none;
+        border-right: none;
+
+        p{
+            margin: 0 0 1em 0;
+        }
+        
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        ul {
+            margin: 0 0 2em 1em;
+            color: $colorGrayDark;
+            line-height: 1.6;
+
+            @extend .semibold;
+        }
+
+        a {
+            color: $colorLinkHoverLight;
+        }
+
+        a:hover {
+            color: $colorLinkHoverDark;
+        }
+    }
+
+.formatting-help-link {
+    //color: $colorGrayMidDark;
+
+    font-size: 0.9em;
+}

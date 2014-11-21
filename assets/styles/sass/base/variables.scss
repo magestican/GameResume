@@ -1,0 +1,62 @@
+// Layout //////////////////////////
+
+    $layoutHeaderHeight:        46px;
+    $layoutContentWidth:        900px;
+    $layoutSidebarWidth:        238px;
+    $layoutMinWidth:            1020px;
+
+// Fonts //////////////////////////
+
+    $baseFontSize:              16px;
+
+// Border radius //////////////////////////
+
+    $borderRadius:              4px;
+
+// Colors //////////////////////////
+
+    // Grays
+    $colorWhite:                #ffffff;
+    $colorGrayLight:            #F0F1F2;
+    $colorGrayLightMid:         #edeeef;
+    $colorGrayMid:              #E3E5E7;
+    $colorGray:                 #bdc4c9;
+    $colorGrayMidDark:          #7e888e;
+    $colorGrayLightDark:        #616970;
+    $colorGrayDark:             #32383d;
+    $colorBlack:                #202326;
+
+    // Blue
+    $colorPrimaryLight:         #2892d4;
+    $colorPrimaryMid:           #2A94D6;
+    $colorPrimaryDark:          #107abc;
+
+    //Red
+    $colorRedLight:             #ea3f4c;
+    $colorRedMid:               #CF5C60;
+    $colorRedDark:              #bc3545;
+
+    //Green
+    $colorGreenLight:           #5db55f;
+    $colorGreenMid:             #4AB471;
+    $colorGreenDark:            #4c934d;
+
+    // Links
+    $colorLink:                 $colorPrimaryLight;
+    $colorLinkHoverLight:       $colorPrimaryLight;    
+    $colorLinkHoverDark:        shade($colorLink, 20%);
+
+    // Project Default Colors
+    $colorProject1:             #4EB1CB;
+    $colorProject2:             #CF5C60;
+    $colorProject3:             #6F7CCB;
+    $colorProject4:             #41B568;
+    $colorProject5:             #F2B853;
+    $colorProject6:             #D35B7C;
+
+// Padding //////////////////////////
+
+    $paddingLarge:              .75em 1em;
+    $paddingSmall:              .25em .5em;
+    $paddingMini:               .25em .5em;
+    $padding:                   .52em .9em;
