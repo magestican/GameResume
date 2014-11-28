@@ -7,13 +7,14 @@ var path = require('path');
 var app = express();
 
 app.configure(function () {
-    var port = process.env.PORT || 3000
+    var port = process.env.PORT || 443
+    process.env.PWD = process.cwd()
     app.set('port', port);
     app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.use(app.router);
-    app.use(express.static(path.join(__dirname, 'build')));
-    app.use(express.static(path.join(__dirname, 'assets')));
+    app.use(express.static(path.join(process.env.PWD, 'build')));
+    app.use(express.static(path.join(process.env.PWD, 'assets')));
 });
 
 var options = {
