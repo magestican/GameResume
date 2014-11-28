@@ -25,8 +25,3 @@ var options = {
 https.createServer(options, app).listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));
 });
-
-app.get('/', function (req, res) {
-    console.log("something");
-    res.send()
-});
