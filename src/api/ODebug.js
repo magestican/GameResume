@@ -178,7 +178,7 @@ var GameTickbox = function () {
             container.style.left = y + "px";
         },
         update: function () {
-            container.innerHTML = "T: " + Math.round(TwoD.tick);
+            container.innerHTML = "T: " + Math.round(Game.tick);
         }
     };
 };
@@ -212,7 +212,7 @@ var WorldInfo = function () {
             container.style.left = y + "px";
         },
         update: function () {
-            container.innerHTML = "TileX: " + ((TwoD.screen.world.camera.x / 128) >> 0);
+            container.innerHTML = "TileX: " + ((Game.screen.world.camera.x / 128) >> 0);
         }
     };
 };
@@ -229,7 +229,7 @@ var CamInfo = function () {
             container.style.left = y + "px";
         },
         update: function () {
-            container.innerHTML = "cam_X: " + TwoD.screen.world.camera.x + "<br/>cam_Y: " + TwoD.screen.world.camera.y;
+            container.innerHTML = "cam_X: " + Game.screen.world.camera.x + "<br/>cam_Y: " + Game.screen.world.camera.y;
         }
     };
 };

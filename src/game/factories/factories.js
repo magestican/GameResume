@@ -1,4 +1,4 @@
-angular.module('SlicFactories')
+angular.module('Factories')
 
     .factory('Manager', ['$rootScope', '$q', 'FileType', function($rootScope, $q, fileTypeFactory) {
         return {

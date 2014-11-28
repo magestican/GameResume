@@ -10,18 +10,18 @@
 
 Screen.prototype = {
     initialize: function (viewport) {
-        this.canvas.width = TwoD.screen.width;
-        this.canvas.height = TwoD.screen.height;
+        this.canvas.width = Game.screen.width;
+        this.canvas.height = Game.screen.height;
         this.canvas.style.position = "absolute";
         this.canvas.style.zIndex = "1000";
         this.canvas.style.top = 0;
         this.canvas.style.left = 0;
         viewport.appendChild(this.canvas);
         window.onresize = function () {
-            TwoD.screen.resize();
+            Game.screen.resize();
         };
         window.onmousemove = function (e) {
-            TwoD.screen.cursor.update(TwoD.screen.canvas.getBoundingClientRect(), e);
+            Game.screen.cursor.update(Game.screen.canvas.getBoundingClientRect(), e);
         };
     },
     setWorld: function (world) {

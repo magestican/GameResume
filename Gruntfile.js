@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
     exec = require('child_process').exec;
 
@@ -9,25 +9,26 @@ module.exports = function(grunt) {
 
         watch: {
             js: {
-                files: 'src/game/**/*.js',
-                tasks: ['browserify', 'exec:reload']
+                files: 'src/**/*.js',
+                tasks: ['concat', 'exec:reload']
             }
         },
 
-        browserify: {
-            'build/main.js': ['src/game/browserifyWire.js'],
-            options: {
-                debug: true
-            }
-        },
-        
         concat: {
             options: {
                 separator: ';'
             },
             lib: {
-                src: 'src/api/**/*.js"',
+                src: [
+                    'src/api/_/**/*.js'
+                ],
                 dest: 'build/lib.js'
+            },
+            game: {
+                src: [
+                   'src/*.js', 'src/api/**/*.js', 'src/game/**/*.js', '!src/api/_/**/*.js', '!src/**/*.js.map', '!src/**/*.min.js'
+                ],
+                dest: 'build/main.js'
             }
         },
 
@@ -37,9 +38,9 @@ module.exports = function(grunt) {
                 mangle: false
             },
             lib: {
-				options: {
-					mangle: false
-				},
+                options: {
+                    mangle: false
+                },
                 files: {
                     'build/lib.min.js': ['build/lib.js']
                 }
@@ -85,8 +86,8 @@ module.exports = function(grunt) {
 
     // Default task(s)
     grunt.registerTask('default', []);
-    grunt.registerTask('build', [ 'browserify', 'concat', 'uglify']);
-    grunt.registerTask('test', ['browserify', 'jasmine']);
-    grunt.registerTask('production', ['browserify', 'jasmine', 'ngtemplates', 'concat', 'uglify']);
+    grunt.registerTask('build', ['concat', 'uglify']);
+    grunt.registerTask('test', [ 'jasmine']);
+    grunt.registerTask('production', ['jasmine', 'ngtemplates', 'concat', 'uglify']);
 
 };

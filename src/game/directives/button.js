@@ -1,4 +1,4 @@
-angular.module('SlicDirectives')
+angular.module('Directives')
 
     .directive('btn', ['$timeout', function($timeout) {
         return {

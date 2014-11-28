@@ -1,4 +1,4 @@
-angular.module('SlicFilters')
+angular.module('Filters')
     
     ////////////////////////////////////////////////////////////
     // Utility
