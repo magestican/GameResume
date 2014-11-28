@@ -3,7 +3,6 @@
 .grunt/
 .sass-cache/
 node_modules/
-ssl/
 
 assets/js/build/
 assets/styles/css/
