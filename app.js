@@ -7,7 +7,7 @@ var path = require('path');
 var app = express();
 
 app.configure(function () {
-    var port = process.env.PORT || 3000
+    var port = process.env.PORT || 443
     console.log("LOOK AT THIS")
     console.log(__dirname);
     app.set('port', port);
