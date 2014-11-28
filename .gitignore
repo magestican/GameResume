@@ -2,11 +2,6 @@
 
 .grunt/
 .sass-cache/
-node_modules/
-
-assets/js/build/
-assets/styles/css/
-assets/templates/templates.js
 
 _SpecRunner.html
 slic_assets.zip
