@@ -13,7 +13,7 @@ app.configure(function () {
     app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.use(app.router);
-    app.use(express.static(path.join(__dirname, 'build')));
+    app.use('build', express.static(__dirname + 'build'));
     app.use(express.static(path.join(__dirname, 'assets')));
 });
 
