@@ -8,7 +8,7 @@ var app = express();
 
 app.configure(function () {
     var port = process.env.PORT || 443
-    app.set('port', 443);
+    app.set('port', port);
     app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.use(app.router);
