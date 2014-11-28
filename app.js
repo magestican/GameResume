@@ -7,7 +7,7 @@ var path = require('path');
 var app = express();
 
 app.configure(function () {
-    var port = process.env.PORT || 443
+    var port = process.env.PORT || 3000
     app.set('port', port);
     app.use(express.bodyParser());
     app.use(express.methodOverride());
